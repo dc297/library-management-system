@@ -1,0 +1,9 @@
+$lms-black-primary: mat-palette($mat-grey, 700, 300, 900);
+$lms-black-accent: mat-palette($mat-blue-grey, 400);
+$lms-black-warn: mat-palette($mat-red, 500);
+
+$lms-black-theme: mat-dark-theme(
+  $lms-black-primary,
+  $lms-black-accent,
+  $lms-black-warn
+);

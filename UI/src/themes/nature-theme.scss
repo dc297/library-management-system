@@ -1,0 +1,9 @@
+$lms-nature-primary: mat-palette($mat-brown, 700, 300, 900);
+$lms-nature-accent: mat-palette($mat-deep-purple, 300);
+$lms-nature-warn: mat-palette($mat-red, 600);
+
+$lms-nature-theme: mat-light-theme(
+  $lms-nature-primary,
+  $lms-nature-accent,
+  $lms-nature-warn
+);

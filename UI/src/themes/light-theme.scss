@@ -1,0 +1,9 @@
+$lms-light-primary: mat-palette($mat-grey, 200, 500, 300);
+$lms-light-accent: mat-palette($mat-brown, 200);
+$lms-light-warn: mat-palette($mat-deep-orange, 200);
+
+$lms-light-theme: mat-light-theme(
+  $lms-light-primary,
+  $lms-light-accent,
+  $lms-light-warn
+);

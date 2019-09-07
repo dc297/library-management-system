@@ -1,0 +1,52 @@
+<div class="container" style="margin-top:20px;">
+  <div class="row">
+    <div class="col-sm-12"><h1>{{ 'Add Borrower' }}</h1></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <mat-card>
+        <form (submit) = "addBorrower()" ngNativeValidate>
+          <div class="row">
+            <mat-form-field class="col">
+              <input name="first_name" maxlength="150" matInput placeholder="First Name" [(ngModel)] = "borrower.firstName" required>
+            </mat-form-field>
+            <mat-form-field class="col">
+              <input name="last_name" maxlength="150" matInput placeholder="Last Name" [(ngModel)] = "borrower.lastName" required>
+            </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field class="col">
+                <input name="ssn" maxlength="11" matInput placeholder="SSN" [(ngModel)] = "borrower.ssn" required>
+              </mat-form-field>
+              <mat-form-field class="col">
+                <input name="state" maxlength="2" matInput placeholder="State" [(ngModel)] = "borrower.state" required>
+              </mat-form-field>
+            </div>
+          <div class="row">
+            <mat-form-field class="col">
+              <input name="street_address" maxlength="300" matInput placeholder="Street Address" [(ngModel)] = "borrower.streetAddress" required>
+            </mat-form-field>
+            <mat-form-field class="col">
+              <input name="city" maxlength="20" matInput placeholder="City" [(ngModel)] = "borrower.city" required>
+            </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field class="col">
+                <input name="email" maxlength="150" type="email" matInput placeholder="Email" [(ngModel)] = "borrower.email">
+              </mat-form-field>
+              <mat-form-field class="col">
+                <input name="phone" maxlength="15" type="tel" matInput placeholder="Phone" [(ngModel)] = "borrower.phone">
+              </mat-form-field>
+            </div>
+          <div class="row pad" style="margin:20px 0;">
+            <button type="submit" color="primary" mat-raised-button [ngClass]="routeAnimationsElements">
+              Add
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

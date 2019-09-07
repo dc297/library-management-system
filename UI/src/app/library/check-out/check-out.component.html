@@ -1,0 +1,51 @@
+<div class="container" style="margin-top:20px;">
+  <div class="row">
+    <div class="col-sm-12"><h1>{{ 'Checking Out Book' }} {{book.title}}</h1></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <lms-big-input placeholder="Search Borrowers by card number or name" (keyup.enter)="onSearch()" [value]="searchQuery" (keyup)="onQueryChange($event.target.value)">
+        <lms-big-input-action ariaLabel="Search" faIcon="search" color="accent"
+        (action)="onSearch()" [matTooltip]="Search"
+        matTooltipPosition="before"></lms-big-input-action>
+      </lms-big-input>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row" style="margin-top:30px;margin-bottom:30px;">
+    <div class="col-md-12" *ngIf="!loadingIndicator">
+      <mat-table [dataSource]="rows">
+        
+        <ng-container matColumnDef="borrowerid">
+          <mat-header-cell *matHeaderCellDef> Borrower Card Number </mat-header-cell>
+          <mat-cell *matCellDef="let borrower"> {{borrower.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let borrower"> {{borrower.firstName}}  {{borrower.lastName}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="ssn">
+          <mat-header-cell *matHeaderCellDef> SSN </mat-header-cell>
+          <mat-cell *matCellDef="let borrower"> {{borrower.ssn}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+          <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+          <mat-cell *matCellDef="let borrower"> {{borrower.streetAddress}}, {{borrower.city}}, {{borrower.state}} </mat-cell>
+        </ng-container>
+ 
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let borrower"> <fa-icon matTooltip="Check out" (click) = "checkOut(borrower.id)" icon="shopping-cart"></fa-icon> </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>

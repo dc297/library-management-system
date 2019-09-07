@@ -1,0 +1,52 @@
+<div class="container" style="margin-top:20px;">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>
+        {{ 'Fines' }}
+        <button type="submit" mat-raised-button color="primary" (click) = "calculateFines()">
+          Calculate Fines
+        </button>
+      </h1></div>
+  </div>
+
+  <div class="row" style="margin-top:30px;margin-bottom:30px;">
+    <div class="col-md-12" *ngIf="!loadingIndicator">
+      <mat-table [dataSource]="rows">
+        
+        <ng-container matColumnDef="borrowerId">
+          <mat-header-cell *matHeaderCellDef> Borrower Card Number </mat-header-cell>
+          <mat-cell *matCellDef="let fine"> {{fine.borrowerId}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="borrowerName">
+          <mat-header-cell *matHeaderCellDef> Borrower Name </mat-header-cell>
+          <mat-cell *matCellDef="let fine"> {{fine.borrowerName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="paidAmount">
+          <mat-header-cell *matHeaderCellDef> Paid Fine </mat-header-cell>
+          <mat-cell *matCellDef="let fine"> {{'$'}}{{fine.paidAmount}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="unpaidAmount">
+            <mat-header-cell *matHeaderCellDef> Unpaid Fine </mat-header-cell>
+            <mat-cell *matCellDef="let fine"> {{'$'}}{{fine.unpaidAmount}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="estimatedAmount">
+              <mat-header-cell *matHeaderCellDef> Estimated Fine </mat-header-cell>
+              <mat-cell *matCellDef="let fine"> {{'$'}}{{fine.estimatedAmount}} </mat-cell>
+            </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+          <mat-cell *matCellDef="let fine"> <fa-icon matTooltip="Pay Fine {{'$'}}{{fine.unpaidAmount}}" (click) = "payFine(fine.borrowerId)" icon="credit-card"></fa-icon> </mat-cell>
+        </ng-container>
+        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
+</div>
