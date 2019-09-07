@@ -1,0 +1,15 @@
+logging:
+  level: INFO
+  loggers:
+    com.dc297: DEBUG
+
+database:
+  driverClass: org.postgresql.Driver
+  user: dc297
+  password: CHtLHi5eDeEMyBu
+  url: jdbc:postgresql://library-postgres.ccezueytupm1.us-east-1.rds.amazonaws.com:5432/librariandb
+  properties:
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.show_sql: true
+    hibernate.generate_statistics: false
+    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
